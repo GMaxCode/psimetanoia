@@ -37,7 +37,7 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 const navigation = [
   ["Sobre", "#sobre"],
   ["Atendimentos", "#servicos"],
-  ["Depoimentos", "#depoimentos"],
+  ["Perguntas frequentes", "#faq"],
   ["Localização", "#localizacao"],
 ] as const;
 
@@ -269,38 +269,15 @@ export default function LandingPage() {
                 A Psicaanalise Metanoia é um espaço de escuta, acolhimento e
                 reflexão. Aqui, você pode explorar suas emoções, compreender
                 seus conflitos e construir uma relação mais consciente consigo
-                mesmo — no seu ritmo e a partir da sua própria história.
+                mesmo — no seu ritmo e a partir da sua própria história. Na
+                análise, cada palavra, silêncio e pergunta pode abrir novos
+                caminhos para compreender o que você sente e construir outras
+                formas de estar consigo e com o mundo.
               </p>
               <span className="audience">
                 <span aria-hidden="true">✓</span> Para todas as pessoas, em
                 diferentes momentos da vida.
               </span>
-            </div>
-
-            <div className="offerings-list">
-              {services.map(({ title, text, icon: Icon }, index) => (
-                <motion.article
-                  className="offering"
-                  initial={{ opacity: 0, y: 12 }}
-                  key={title}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                >
-                  <span className="offering__number">0{index + 1}</span>
-                  <span className="offering__icon">
-                    <Icon aria-hidden="true" size={18} />
-                  </span>
-                  <div>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                  </div>
-                  <ArrowUpRight
-                    aria-hidden="true"
-                    className="offering__arrow"
-                    size={16}
-                  />
-                </motion.article>
-              ))}
             </div>
           </div>
         </section>
@@ -358,37 +335,75 @@ export default function LandingPage() {
         </section>
 
         <section
-          aria-labelledby="testimonials-title"
-          className="testimonials section-pad"
-          id="depoimentos"
+          aria-labelledby="faq-title"
+          className="faq section-pad"
+          id="faq"
         >
           <div className="section-heading">
             <span className="eyebrow">
-              <span className="eyebrow__line" /> Relatos
+              <span className="eyebrow__line" /> Tire suas dúvidas
             </span>
             <span className="section-number">04 / 05</span>
           </div>
-          <div className="testimonials__heading">
-            <h2 id="testimonials-title">
-              Histórias contadas
+          <div className="faq__heading">
+            <h2 id="faq-title">
+              Perguntas
               <br />
-              <em>com carinho.</em>
+              <em>frequentes.</em>
             </h2>
-            <p>A experiência de cada pessoa é única e merece ser respeitada.</p>
+            <p>
+              Algumas respostas para ajudar você a dar o primeiro passo com
+              tranquilidade.
+            </p>
           </div>
-          <div className="testimonial-cards">
-            {[1, 2, 3].map((item) => (
-              <article className="testimonial-card" key={item}>
-                <span className="testimonial-card__badge">
-                  Em breve <Sparkles aria-hidden="true" size={12} />
-                </span>
-                <span aria-hidden="true" className="testimonial-card__quote">
-                  “
-                </span>
-                <p>Adicione aqui um depoimento autorizado.</p>
-                <span className="testimonial-card__line" />
-              </article>
-            ))}
+          <div className="faq__list">
+            <details className="faq__item">
+              <summary>Como funciona a primeira sessão?</summary>
+              <p>
+                A primeira conversa é um momento de acolhimento. Você fala sobre
+                o que o trouxe até aqui, no seu ritmo, e o analista explica como
+                o trabalho acontece. Não é preciso chegar com tudo organizado:
+                começar a falar já faz parte do processo.
+              </p>
+            </details>
+            <details className="faq__item">
+              <summary>
+                Preciso ter um problema “grave” para procurar psicanálise?
+              </summary>
+              <p>
+                Não. Muitas pessoas procuram análise por angústia, ansiedade,
+                dificuldades nos relacionamentos, sensação de vazio ou
+                simplesmente para se conhecer melhor. Não existe um motivo
+                “certo” ou “grande o suficiente”.
+              </p>
+            </details>
+            <details className="faq__item">
+              <summary>Quanto tempo dura o tratamento?</summary>
+              <p>
+                Não há um prazo fixo. A duração varia de pessoa para pessoa e é
+                conversada ao longo do processo. Cada atendimento dura [X
+                minutos], com frequência de [X vez(es) por semana], combinada na
+                primeira conversa.
+              </p>
+            </details>
+            <details className="faq__item">
+              <summary>O que eu conto nas sessões é sigiloso?</summary>
+              <p>
+                Sim. O sigilo é um princípio fundamental do trabalho clínico, e
+                tudo o que é dito no consultório fica no consultório.
+              </p>
+            </details>
+            <details className="faq__item">
+              <summary>
+                Qual a diferença entre psicanálise e psicoterapia?
+              </summary>
+              <p>
+                A psicanálise dá atenção especial ao inconsciente, ou seja, ao
+                que influencia nossas escolhas e sentimentos sem que a gente
+                perceba. A fala livre é o principal instrumento: você diz o que
+                vier à mente, sem precisar organizar ou julgar.
+              </p>
+            </details>
           </div>
         </section>
 
