@@ -1,6 +1,6 @@
-# Psicaanalise Metanoia
+# Psicanálise Metanoia
 
-Landing page responsiva para a clínica de psicanálise Psicaanalise Metanoia, em Ji-Paraná, Rondônia. A página apresenta os atendimentos, informações de contato e localização, com o vídeo do cliente na abertura do site.
+Landing page responsiva da Psicanálise Metanoia, com foco em brasileiros que vivem no exterior e buscam atendimento online em português. A página aborda os desafios emocionais da imigração, explica como funciona o atendimento e oferece contato direto pelo WhatsApp.
 
 ## Stack
 
@@ -41,22 +41,23 @@ Variáveis principais:
 - `NEXT_PUBLIC_WHATSAPP_NUMBER`
 - `NEXT_PUBLIC_WHATSAPP_MESSAGE`
 - `NEXT_PUBLIC_CLIENT_NAME`
-- `NEXT_PUBLIC_CITY`
 - `NEXT_PUBLIC_INSTAGRAM`
-- `NEXT_PUBLIC_FACEBOOK`
-- `NEXT_PUBLIC_LINKEDIN`
 - `NEXT_PUBLIC_EMAIL`
-- `NEXT_PUBLIC_ADDRESS`
-- `NEXT_PUBLIC_HOURS`
 - `NEXT_PUBLIC_SITE_URL`
+- `NEXT_PUBLIC_THERAPIST_NAME` (opcional)
+- `NEXT_PUBLIC_PROFESSIONAL_REGISTRATION` (opcional)
 
 ## Como personalizar o conteúdo
 
-- Textos, cards e sections da landing page: `components/landing-page.tsx`
+- Textos, cards, perguntas e seções da landing page: `components/landing-page.tsx`
 - Cores e layout: `app/globals.css`
 - Metadata e SEO: `app/layout.tsx`
 - Sitemap e robôs da busca: `app/sitemap.ts` e `app/robots.ts`
-- Vídeo do hero: `public/videos/video2.mp4`
+- Imagem principal do hero: `public/images/expatriado-janela.jpg`
+- Foto ilustrativa da seção profissional: `public/images/terapeuta.jpg`
+- Ilustração do atendimento online: `public/images/rota-global.svg`
+
+Antes de publicar, configure o nome e o registro profissional, se houver, e substitua `public/images/terapeuta.jpg` por uma foto profissional aprovada pela terapeuta. O e-mail e o WhatsApp também devem ser confirmados com a cliente. O CTA usa a mensagem de origem definida em `NEXT_PUBLIC_WHATSAPP_MESSAGE`.
 
 ## Deploy na Vercel
 
@@ -74,4 +75,4 @@ Variáveis principais:
 4. Configure os registros A/CNAME conforme solicitado pela Vercel.
 5. Aguarde a validação do certificado HTTPS.
 
-O horário de atendimento ainda não foi informado; a landing page solicita a consulta pelo WhatsApp até que esse dado seja cadastrado.
+Os horários são combinados para acomodar os diferentes fusos. Confirme as informações profissionais e os dados de contato antes de publicar o site.

@@ -13,51 +13,38 @@ const geistMono = Geist_Mono({
 });
 
 const clientName =
-  process.env.NEXT_PUBLIC_CLIENT_NAME ?? "Psicaanalise Metanoia";
-const city = process.env.NEXT_PUBLIC_CITY ?? "Ji-Paraná RO";
+  process.env.NEXT_PUBLIC_CLIENT_NAME ?? "Psicanálise Metanoia";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://seudominio.com.br";
-const address =
-  process.env.NEXT_PUBLIC_ADDRESS ??
-  "Av Aracaju, 3368, Jorge Texeira, Ji-Paraná - RO";
-const phone = (
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "+55 69 9917-5555"
-).replace(/[^\d+]/g, "");
-const hours = process.env.NEXT_PUBLIC_HOURS ?? "";
 const description =
-  "Um espaço de escuta, acolhimento e reflexão, onde você pode explorar suas emoções, compreender seus conflitos e construir uma relação mais consciente consigo mesmo.";
-const localBusiness = {
+  "Atendimento online em português para brasileiros que vivem no exterior. Um espaço de escuta para acolher os desafios emocionais da imigração.";
+const onlineService = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Service",
   name: clientName,
   description,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: address,
-    addressLocality: city,
-    addressCountry: "BR",
+  serviceType: "Atendimento online de psicanálise em português",
+  provider: {
+    "@type": "Organization",
+    name: clientName,
   },
-  telephone: phone,
-  ...(hours ? { openingHours: hours } : {}),
   url: siteUrl,
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: `${clientName} — Tratamento confiável e de qualidade | ${city}`,
-  description: `${description} ${clientName} em ${city}. Atendimento personalizado.`,
+  title: `${clientName} — Terapia online para brasileiros no exterior`,
+  description,
   keywords: [
-    "Clínica de Psicanálise",
-    city,
     clientName,
-    "Atendimento personalizado",
-    "terapia individual",
-    "terapia de casal",
-    "terapia familiar",
+    "terapia online para brasileiros no exterior",
+    "psicanálise em português",
+    "saúde mental na imigração",
+    "solidão e ansiedade no exterior",
   ],
   alternates: { canonical: "/" },
   openGraph: {
-    title: `${clientName} — Tratamento confiável e de qualidade`,
-    description: `${description} ${clientName} em ${city}.`,
+    title: `${clientName} — Atendimento online em português`,
+    description,
     url: siteUrl,
     siteName: clientName,
     locale: "pt_BR",
@@ -65,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${clientName} — Tratamento confiável e de qualidade`,
-    description: `${description} ${clientName} em ${city}.`,
+    title: `${clientName} — Atendimento online em português`,
+    description,
   },
   robots: {
     index: true,
@@ -87,7 +74,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusiness).replace(/</g, "\\u003c"),
+            __html: JSON.stringify(onlineService).replace(/</g, "\\u003c"),
           }}
         />
         {children}

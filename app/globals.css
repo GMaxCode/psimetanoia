@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f7f3f1;
+  --paper: #f5f2ea;
   --white: #fff;
-  --ink: #1e1719;
-  --muted: #726a68;
-  --wine: #672e3b;
-  --wine-deep: #321d22;
-  --wine-soft: #8f5c65;
-  --line: #e7ded9;
+  --ink: #233537;
+  --muted: #657372;
+  --wine: #64775f;
+  --wine-deep: #1d3d43;
+  --wine-soft: #7f9278;
+  --line: #e0e5db;
   --serif:
     "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
 }
@@ -102,17 +102,23 @@ a:focus-visible {
 }
 
 .brand__monogram {
-  display: grid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 36px;
   height: 36px;
-  place-items: center;
   border-radius: 50%;
   background: var(--wine);
   color: var(--white);
   font-family: var(--serif);
-  font-size: 20px;
-  font-style: italic;
+  font-size: 19px;
+  font-weight: 500;
+  font-style: normal;
   line-height: 1;
+  padding-left: 2px;
+  padding-bottom: 1px;
+  user-select: none;
+  flex-shrink: 0;
 }
 
 .brand__copy {
@@ -216,6 +222,7 @@ a:focus-visible {
 }
 
 .hero__video,
+.hero__image,
 .hero__shade {
   position: absolute;
   inset: 0;
@@ -228,19 +235,24 @@ a:focus-visible {
   object-position: center center;
 }
 
+.hero__image {
+  object-fit: cover;
+  object-position: center 45%;
+}
+
 .hero__shade {
   background:
     linear-gradient(
       90deg,
-      rgba(30, 20, 23, 0.72) 0%,
-      rgba(35, 21, 27, 0.54) 44%,
-      rgba(34, 22, 24, 0.26) 100%
+      rgba(21, 43, 48, 0.78) 0%,
+      rgba(27, 53, 57, 0.62) 48%,
+      rgba(34, 55, 55, 0.22) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(27, 18, 20, 0.42) 0%,
-      rgba(27, 18, 20, 0.05) 42%,
-      rgba(27, 18, 20, 0.26) 100%
+      rgba(21, 43, 48, 0.4) 0%,
+      rgba(21, 43, 48, 0.03) 42%,
+      rgba(21, 43, 48, 0.26) 100%
     );
 }
 
@@ -1169,5 +1181,693 @@ a:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+.hero {
+  min-height: min(850px, 100svh);
+}
+
+.hero__content {
+  align-items: center;
+  margin-top: 112px;
+  margin-bottom: 78px;
+}
+
+.hero__copy {
+  max-width: 900px;
+}
+
+.hero h1 {
+  max-width: 880px;
+  font-size: clamp(48px, 6.5vw, 92px);
+  line-height: 1.03;
+}
+
+.hero h1 em {
+  color: #d8e1d4;
+}
+
+.hero__copy p {
+  max-width: 640px;
+  font-size: 15px;
+}
+
+.hero__actions {
+  gap: 22px;
+}
+
+.hero__actions .button {
+  min-height: 54px;
+  font-size: 12px;
+}
+
+.hero__note {
+  display: block;
+  margin-top: 17px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.hero__footer {
+  font-size: 9px;
+}
+
+.brand__copy small {
+  max-width: 210px;
+  font-size: 7px;
+  letter-spacing: 0.09em;
+  white-space: nowrap;
+}
+
+.expat-story {
+  padding-top: 96px;
+  padding-bottom: 110px;
+}
+
+.expat-story__grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: clamp(38px, 8vw, 110px);
+  margin-top: 64px;
+}
+
+.expat-story__copy h2,
+.native-language__copy h2,
+.therapist__copy h2,
+.online-care h2,
+.questions h2,
+.final-cta h2 {
+  margin: 0;
+  font-size: clamp(42px, 5.3vw, 76px);
+  font-weight: 400;
+  letter-spacing: -0.065em;
+  line-height: 1.04;
+}
+
+.expat-story__copy h2 em,
+.native-language__copy h2 em,
+.therapist__copy h2 em,
+.online-care h2 em,
+.questions h2 em,
+.final-cta h2 em {
+  color: var(--wine);
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+}
+
+.expat-story__copy > p,
+.native-language__copy > p,
+.therapist__copy > p,
+.online-care__heading > p,
+.online-card > p,
+.questions__heading > p,
+.final-cta > p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.expat-story__copy > p {
+  max-width: 450px;
+  margin: 24px 0;
+}
+
+.expat-story__photo {
+  position: relative;
+  min-height: 400px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px 92px 8px 8px;
+  background: #dbe3e0;
+}
+
+.expat-story__photo > img,
+.therapist__portrait > img,
+.native-language__art > img {
+  object-fit: cover;
+}
+
+.expat-story__photo > img {
+  object-position: center 45%;
+}
+
+.expat-story__photo figcaption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+}
+
+.social-card {
+  display: flex;
+  width: min(100%, 270px);
+  flex-direction: column;
+  gap: 8px;
+  padding: 15px 17px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 12px;
+  background: rgba(250, 249, 245, 0.9);
+  box-shadow: 0 12px 34px rgba(19, 37, 37, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.social-card__dots {
+  color: #82927d;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+
+.social-card strong {
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 550;
+}
+
+.social-card small {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.photo-caption {
+  align-self: flex-end;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: rgba(29, 61, 67, 0.72);
+  color: var(--white);
+  font-size: 10px;
+  backdrop-filter: blur(8px);
+}
+
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.challenge-card {
+  position: relative;
+  min-height: 204px;
+  padding: 25px 24px 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.challenge-card__number {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  color: #99a49a;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.challenge-card__icon {
+  color: var(--wine);
+}
+
+.challenge-card h3 {
+  margin: 20px 0 8px;
+  font-size: 17px;
+  font-weight: 550;
+  letter-spacing: -0.035em;
+}
+
+.challenge-card p {
+  max-width: 290px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.native-language {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(40px, 8vw, 110px);
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background: #e9eee7;
+}
+
+.native-language__art {
+  position: relative;
+  min-height: 390px;
+  overflow: hidden;
+  border-radius: 50% 50% 8px 8px;
+  background: #fff;
+}
+
+.native-language__art > img {
+  object-fit: contain;
+  padding: 22px;
+}
+
+.native-language__stamp {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--wine-deep);
+  color: var(--white);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+}
+
+.native-language__copy {
+  max-width: 600px;
+}
+
+.native-language__copy h2,
+.therapist__copy h2 {
+  margin-top: 22px;
+  font-size: clamp(40px, 4.7vw, 66px);
+}
+
+.native-language__copy > p {
+  margin: 22px 0 0;
+}
+
+.native-language__copy > .text-link {
+  margin-top: 24px;
+}
+
+.therapist {
+  padding-top: 92px;
+  padding-bottom: 110px;
+}
+
+.therapist__grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.75fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: clamp(48px, 9vw, 130px);
+  max-width: 1100px;
+  margin: 58px auto 0;
+}
+
+.therapist__portrait {
+  position: relative;
+  min-height: 480px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 48% 48% 8px 8px;
+  background: #e9e4da;
+}
+
+.therapist__portrait > img {
+  object-position: center top;
+}
+
+.therapist__portrait figcaption {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(29, 61, 67, 0.82);
+  color: var(--white);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+}
+
+.therapist__copy {
+  max-width: 580px;
+}
+
+.therapist__copy > p {
+  margin: 20px 0 0;
+}
+
+.therapist__copy .therapist__name,
+.therapist__copy .therapist__role {
+  margin-top: 16px;
+  color: var(--wine);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.therapist__copy .therapist__registration {
+  font-size: 11px;
+}
+
+.therapist__copy .button {
+  margin-top: 24px;
+}
+
+.online-care {
+  padding-top: 36px;
+  padding-bottom: 76px;
+  background: var(--wine-deep);
+  color: var(--white);
+}
+
+.online-care .eyebrow,
+.online-care h2 em {
+  color: #d9e1d3;
+}
+
+.online-care__heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 36px;
+  margin-top: 56px;
+}
+
+.online-care h2 {
+  font-size: clamp(42px, 5.3vw, 76px);
+}
+
+.online-care__heading > p {
+  max-width: 330px;
+  margin: 0 0 6px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.online-care__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 42px;
+}
+
+.online-card {
+  display: flex;
+  min-height: 220px;
+  flex-direction: column;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.online-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.online-card__icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  color: #d9e1d3;
+}
+
+.online-card__number {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.online-card h3 {
+  margin: 26px 0 8px;
+  font-size: 17px;
+  font-weight: 550;
+}
+
+.online-card > p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+}
+
+.online-care__illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.online-care__illustration img {
+  width: min(320px, 45vw);
+  height: auto;
+}
+
+.online-care__illustration p {
+  max-width: 230px;
+  color: rgba(255, 255, 255, 0.76);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.questions {
+  padding-top: 92px;
+  padding-bottom: 104px;
+}
+
+.questions__heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 54px;
+}
+
+.questions__heading > p {
+  max-width: 300px;
+  margin: 0 0 5px;
+}
+
+.questions .faq__list {
+  max-width: 900px;
+  margin-top: 42px;
+}
+
+.final-cta {
+  position: relative;
+  overflow: hidden;
+  padding: 108px 24px 96px;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(127, 146, 120, 0.2),
+      transparent 56%
+    ),
+    #e9eee7;
+  text-align: center;
+}
+
+.final-cta > .eyebrow {
+  justify-content: center;
+}
+
+.final-cta h2 {
+  position: relative;
+  margin-top: 22px;
+  font-size: clamp(48px, 6.7vw, 86px);
+}
+
+.final-cta h2 em {
+  color: var(--wine-deep);
+}
+
+.final-cta > p {
+  max-width: 480px;
+  margin: 20px auto 26px;
+}
+
+.final-cta__button {
+  min-height: 54px;
+}
+
+.final-cta .contact__alternatives {
+  margin-top: 20px;
+}
+
+.footer-label--contact {
+  margin-top: 10px;
+}
+
+@media (max-width: 860px) {
+  .expat-story__grid,
+  .native-language {
+    grid-template-columns: 1fr 1fr;
+    gap: 34px;
+  }
+
+  .expat-story__photo {
+    min-height: 360px;
+  }
+
+  .therapist__grid {
+    gap: 45px;
+  }
+
+  .therapist__portrait {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 760px;
+  }
+
+  .hero__content {
+    width: calc(100% - 46px);
+    align-items: flex-start;
+    margin-top: 94px;
+    margin-bottom: 90px;
+  }
+
+  .hero h1 {
+    font-size: clamp(43px, 10.5vw, 68px);
+  }
+
+  .hero__copy p {
+    font-size: 13px;
+  }
+
+  .hero__actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero__actions .button {
+    max-width: 100%;
+    min-height: 52px;
+    white-space: normal;
+  }
+
+  .hero__footer span:last-child {
+    display: none;
+  }
+
+  .brand__copy small {
+    max-width: 145px;
+    font-size: 6px;
+    letter-spacing: 0.04em;
+  }
+
+  .expat-story,
+  .therapist,
+  .questions {
+    padding-top: 78px;
+    padding-bottom: 82px;
+  }
+
+  .expat-story__grid,
+  .native-language,
+  .therapist__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 38px;
+  }
+
+  .expat-story__copy h2,
+  .native-language__copy h2,
+  .therapist__copy h2,
+  .online-care h2,
+  .questions h2 {
+    font-size: clamp(40px, 10vw, 60px);
+  }
+
+  .expat-story__photo {
+    min-height: 340px;
+    border-top-right-radius: 70px;
+  }
+
+  .challenge-grid,
+  .online-care__grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .challenge-card {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .challenge-card h3 {
+    margin-top: 16px;
+  }
+
+  .native-language {
+    padding-top: 76px;
+    padding-bottom: 78px;
+  }
+
+  .native-language__art {
+    min-height: 290px;
+    order: 2;
+  }
+
+  .native-language__copy {
+    order: 1;
+  }
+
+  .therapist__portrait {
+    width: min(100%, 380px);
+    min-height: 440px;
+    justify-self: center;
+  }
+
+  .online-care {
+    padding-top: 30px;
+    padding-bottom: 60px;
+  }
+
+  .online-care__heading,
+  .questions__heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 40px;
+  }
+
+  .online-card {
+    min-height: 190px;
+  }
+
+  .online-care__illustration {
+    flex-direction: column;
+    gap: 0;
+    margin-top: 24px;
+  }
+
+  .online-care__illustration img {
+    width: min(320px, 90vw);
+  }
+
+  .online-care__illustration p {
+    max-width: 260px;
+    margin-top: 4px;
+    text-align: center;
+  }
+
+  .questions .faq__list {
+    margin-top: 30px;
+  }
+
+  .final-cta {
+    padding: 82px 22px 78px;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(42px, 10vw, 66px);
+  }
+
+  .final-cta__button {
+    max-width: 100%;
+    white-space: normal;
   }
 }
